@@ -1,0 +1,45 @@
+import random
+from datetime import datetime
+
+
+students = ["Aadhi", "Bala", "Chitra", "Deepa"]
+
+
+cities = ("Chennai", "Bangalore", "Hyderabad")
+
+
+courses = {"Python", "Java", "C++"}
+
+
+student_details = {}
+
+
+def add_student(name, city, course):
+
+    student_id = "STU" + str(random.randint(1000, 9999))
+   
+    time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+
+    student_details[student_id] = {
+        "name": name,
+        "city": city,
+        "course": course,
+        "time": time
+    }
+
+
+for i, name in enumerate(students):
+    city = cities[i % len(cities)]
+    course = list(courses)[i % len(courses)]
+    add_student(name, city, course)
+
+
+print("===== STUDENT DETAILS =====")
+for sid, info in student_details.items():
+    print(f"ID: {sid} | Name: {info['name']} | City: {info['city']} | Course: {info['course']} | Time: {info['time']}")
+
+text = "Python Programming"
+print("\nString Length:", len(text))
+print("Uppercase:", text.upper())
+print("Split words:", text.split())
+   

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation</title>
+</head>
+<body>
+<h1>Student Form</h1>
+<form id="studentForm" onsubmit="return validateForm()" action="success.html">
+<b>Name: </b><input type="text" id="name" name="name" placeholder="Enter Your Name"><br>
+<b>Register Number: </b><input type="text" id="reg" name="reg" placeholder="Enter Your Register Number"><br>
+<b>City: </b>
+<select id="city" name="city">
+<option value="" selected disabled>Select City</option>
+<option value="India">India</option>
+<option value="Russia">Russia</option>
+<option value="London">London</option>
+<option value="Poland">Poland</option>
+<option value="Ukraine">Ukraine</option>
+</select><br>
+<input type="submit" value="Submit">
+</form>
+
+<!-- JAVASCRIPT -->
+<script>
+function validateForm() {
+    var name = document.getElementById("name").value;
+    var reg = document.getElementById("reg").value;
+    var city = document.getElementById("city").value;
+
+    if (!name.trim() || !reg.trim() || !city) {
+        alert("All fields must be filled out");
+        return false;
+    }
+    return true;
+}
+</script>
+</body>
+</html>
+  
